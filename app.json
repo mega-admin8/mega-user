@@ -4,26 +4,36 @@
     "slug": "MegaPlay",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/user_icon1.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/user_splash1.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FF007F"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.MegaPlay"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/user_icon1.png",
+        "backgroundColor": "#FF007F" 
       },
-      "edgeToEdgeEnabled": true
+      "splash": {
+        "backgroundColor": "#FF007F" 
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.MegaPlay"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "@react-native-community/datetimepicker",
+      "expo-font"
+    ]
   }
 }
