@@ -22,7 +22,7 @@ export default function MainTabs({ user, onLogout }) {
   // WhatsApp Redirect Function
   const openWhatsApp = () => {
     // Replace with your client's actual WhatsApp business number
-    const phoneNumber = "+919876543210";
+    const phoneNumber = "+918368173619";
     const message = "Hello Support, I need help with MegaPlay.";
     Linking.openURL(
       `whatsapp://send?phone=${phoneNumber}&text=${message}`,
