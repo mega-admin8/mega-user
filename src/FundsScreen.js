@@ -53,7 +53,7 @@ export default function FundsScreen({ navigation, user }) {
           // You can replace the phone number below with your actual company WhatsApp number!
           onPress: () =>
             Linking.openURL(
-              "whatsapp://send?text=Hello MegaPlay Support, I want to " +
+              "whatsapp://send?phone=${918368173691}&text=Hello MegaPlay Support, I want to " +
                 actionType.toLowerCase() +
                 " my funds.",
             ).catch(() =>

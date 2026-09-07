@@ -19,13 +19,14 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/user_icon1.png",
-        "backgroundColor": "#FF007F" 
+        "backgroundColor": "#FF007F"
       },
       "splash": {
-        "backgroundColor": "#FF007F" 
+        "backgroundColor": "#FF007F"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.MegaPlay"
+      "package": "com.anonymous.MegaPlay",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,7 +34,15 @@
     "plugins": [
       "expo-router",
       "@react-native-community/datetimepicker",
-      "expo-font"
-    ]
+      "expo-font",
+      "expo-secure-store"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "59616638-a1e1-400a-a3f2-82700b0c7bd3"
+      }
+    },
+    "owner": "adminmega8"
   }
 }

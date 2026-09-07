@@ -16,23 +16,6 @@ import PassbookScreen from "./PassbookScreen";
 import FundsScreen from './FundsScreen';
 
 const Tab = createBottomTabNavigator();
-
-// --- Placeholder Screens (We will build these out later) ---
-// const MyBidsScreen = () => (
-//   <View style={styles.center}>
-//     <Text>My Bids List</Text>
-//   </View>
-// );
-// const PassbookScreen = () => (
-//   <View style={styles.center}>
-//     <Text>Transaction History</Text>
-//   </View>
-// );
-// const FundsScreen = () => (
-//   <View style={styles.center}>
-//     <Text>Add/Withdraw Funds</Text>
-//   </View>
-// );
 const DummySupportScreen = () => null; // Never actually renders because we intercept the click
 
 export default function MainTabs({ user, onLogout }) {

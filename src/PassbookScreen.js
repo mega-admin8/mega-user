@@ -117,12 +117,12 @@ export default function PassbookScreen() {
       case 'CREDIT':
       case 'DEPOSIT':
       case 'ADD':
-        return { title: 'Funds Added by Admin', isPositive: true };
+        return { title: 'Funds Added', isPositive: true };
       case 'ADMIN_DEBIT':
       case 'DEBIT':
       case 'WITHDRAW':
       case 'DEDUCT':
-        return { title: 'Funds Deducted by Admin', isPositive: false };
+        return { title: 'Funds Deducted', isPositive: false };
       default:
         // FIX: Instead of just saying "Transaction", this will now print exactly 
         // what word your database is sending (e.g., "Unknown: WITHDRAW_REQ")

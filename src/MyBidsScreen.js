@@ -43,18 +43,6 @@ export default function MyBidsScreen() {
     if (selectedDate) setEndDate(selectedDate);
   };
 
-  // const fetchBids = () => {
-  //   setIsLoading(true);
-  //   // API Call goes here
-  //   setTimeout(() => {
-  //     setBidsData([]); // Empty for now to show the clean empty state
-  //     setIsLoading(false);
-  //   }, 800);
-  // };
-
-
-  // Change totalPages from a const to state
-  
   const [totalPages, setTotalPages] = useState(1);
 
   // Add a useEffect so it fetches bids automatically when the screen loads or page changes
@@ -66,32 +54,38 @@ export default function MyBidsScreen() {
     setIsLoading(true);
     try {
       // Format dates to YYYY-MM-DD for PostgreSQL
-      const start = startDate.toISOString().split('T')[0];
-      const end = endDate.toISOString().split('T')[0];
+      const start = startDate.toISOString().split("T")[0];
+      const end = endDate.toISOString().split("T")[0];
 
       // Call the backend with dates and pagination
-      const response = await api.get(`/bids/my-bids?startDate=${start}&endDate=${end}&page=${page}`);
-      
+      const response = await api.get(
+        `/bids/my-bids?startDate=${start}&endDate=${end}&page=${page}`,
+      );
+
       // Map the database column names to match your frontend UI props perfectly
-      const formattedBids = response.data.bids.map(bid => ({
+      const formattedBids = response.data.bids.map((bid) => ({
         gameName: bid.market_name,
-        date: new Date(bid.placed_at).toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
-        bidType: bid.game_type.replace('_', ' '),
+        date: new Date(bid.placed_at).toLocaleString("en-GB", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        bidType: (bid.game_type || "").replace("_", " "),
         number: bid.bid_number,
         points: bid.amount,
-        status: bid.status // You can use this later to switch between amountBadgeRed and amountBadgeGreen!
+        status: bid.status, // You can use this later to switch between amountBadgeRed and amountBadgeGreen!
       }));
 
       setBidsData(formattedBids);
       setTotalPages(response.data.totalPages || 1);
-      
     } catch (error) {
       console.error("Error fetching bids:", error);
     } finally {
       setIsLoading(false);
     }
   };
-
 
   const renderBidCard = ({ item }) => (
     <View style={styles.dataCard}>
@@ -153,7 +147,13 @@ export default function MyBidsScreen() {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity style={styles.searchButton} onPress={fetchBids}>
+        <TouchableOpacity
+          style={styles.searchButton}
+          onPress={() => {
+            setPage(1);
+            fetchBids();
+          }}
+        >
           <Search color="#fff" size={18} style={{ marginRight: 8 }} />
           <Text style={styles.searchButtonText}>Filter</Text>
         </TouchableOpacity>
