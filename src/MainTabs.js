@@ -14,6 +14,8 @@ import DashboardScreen from "./DashboardScreen";
 import MyBidsScreen from "./MyBidsScreen";
 import PassbookScreen from "./PassbookScreen";
 import FundsScreen from './FundsScreen';
+import api from './api';
+
 
 const Tab = createBottomTabNavigator();
 const DummySupportScreen = () => null; // Never actually renders because we intercept the click
