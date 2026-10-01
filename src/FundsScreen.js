@@ -39,7 +39,9 @@ export default function FundsScreen({ navigation, user }) {
   );
 
   // Function to trigger the WhatsApp Alert
-  const handleManualFund = (actionType) => {
+  const handleManualFund = async (actionType) => {
+    const response = await api.get('/admin/settings'); 
+
     Alert.alert(
       `${actionType} Funds`,
       `To ${actionType.toLowerCase()} funds securely, please contact our support team directly on WhatsApp.`,
@@ -53,7 +55,7 @@ export default function FundsScreen({ navigation, user }) {
           // You can replace the phone number below with your actual company WhatsApp number!
           onPress: () =>
             Linking.openURL(
-              "whatsapp://send?phone=${918368173691}&text=Hello MegaPlay Support, I want to " +
+              `whatsapp://send?phone=${response.data.whatsapp_number}&text=Hello MegaPlay Support, I want to ` +
                 actionType.toLowerCase() +
                 " my funds.",
             ).catch(() =>

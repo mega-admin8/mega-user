@@ -20,9 +20,11 @@ const DummySupportScreen = () => null; // Never actually renders because we inte
 
 export default function MainTabs({ user, onLogout }) {
   // WhatsApp Redirect Function
-  const openWhatsApp = () => {
+  const openWhatsApp = async () => {
+    const response = await api.get('/admin/settings'); 
+
     // Replace with your client's actual WhatsApp business number
-    const phoneNumber = "+918368173619";
+    const phoneNumber = response.data.whatsapp_number;
     const message = "Hello Support, I need help with MegaPlay.";
     Linking.openURL(
       `whatsapp://send?phone=${phoneNumber}&text=${message}`,
