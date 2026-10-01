@@ -270,10 +270,10 @@ export default function DashboardScreen({ user }) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.iconButton}>
+        {/* <TouchableOpacity style={styles.iconButton}>
           <Bell color={theme.colors.textDark} size={24} />
           <View style={styles.notificationDot} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       < GaliDesawarEntryCard navigation={navigation} />
